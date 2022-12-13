@@ -23,6 +23,7 @@ class TreeNode {
 }
 
 class Solution {
+
     List<List<Integer>> res = new ArrayList<>();
 
     public List<List<Integer>> findLeaves(TreeNode root) {
