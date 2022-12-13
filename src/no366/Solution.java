@@ -63,6 +63,5 @@ class Solution {
             traverse(root.left, list);
             traverse(root.right, list);
         }
-
     }
 }
