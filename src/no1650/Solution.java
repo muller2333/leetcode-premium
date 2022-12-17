@@ -28,8 +28,9 @@ class Solution {
         int size = Math.min(list.size(), list2.size());
         Node res = null;
         for (int i = 0; i < size; i++) {
-            if (list.get(i) == list2.get(i)) {
-                res = list.get(i);
+            Node node = list.get(i);
+            if (node == list2.get(i)) {
+                res = node;
             } else {
                 return res;
             }
