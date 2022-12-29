@@ -7,4 +7,4 @@ from (select sum(total_price) total, product_id
               and purchase_date >= start_date) mid
       group by product_id) mid2
          inner join (select sum(units) counts, product_id from UnitsSold group by product_id) mid3
-                    on mid2.product_id = mid3.product_id
+                    on mid2.product_id = mid3.product_id;
