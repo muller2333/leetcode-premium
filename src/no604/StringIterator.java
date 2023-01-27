@@ -11,24 +11,24 @@ class StringIterator {
     public StringIterator(String compressedString) {
         int length = compressedString.length();
         int i = 0;
-        StringBuilder sb = new StringBuilder();
+        int num = 0;
         while (i < length) {
             char c = compressedString.charAt(i);
             if (!Character.isDigit(c)) {
                 charList.add(c);
                 while (++i < length) {
-                    c = compressedString.charAt(i);
-                    if (Character.isDigit(c)) {
-                        sb.append(c);
+                    int val = compressedString.charAt(i) - '0';
+                    if (val <= 9 && val >= 0) {
+                        num = num * 10 + val;
                     } else {
-                        countList.add(Integer.parseInt(sb.toString()));
-                        sb = new StringBuilder();
+                        countList.add(num);
+                        num = 0;
                         break;
                     }
                 }
             }
         }
-        countList.add(Integer.parseInt(sb.toString()));
+        countList.add(num);
     }
 
     public char next() {
