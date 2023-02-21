@@ -2,41 +2,55 @@ package no1429;
 
 import java.util.*;
 
+//class FirstUnique {
+//    Set<Integer> set = new HashSet<>();
+//    Set<Integer> resultSet = new LinkedHashSet<>();
+//
+//    public FirstUnique(int[] nums) {
+//        for (int num : nums) {
+//            add(num);
+//        }
+//    }
+//
+//    public int showFirstUnique() {
+//        return resultSet.isEmpty() ? -1 : resultSet.iterator().next();
+//    }
+//
+//    public void add(int value) {
+//        if (set.contains(value)) {
+//            resultSet.remove(value);
+//        } else {
+//            resultSet.add(value);
+//            set.add(value);
+//        }
+//    }
+//
+//}
+
 class FirstUnique {
-    Map<Integer, Integer> map = new LinkedHashMap<>();
-    List<Integer> list = new ArrayList<>();
-    int index = 0;
+
+    private Queue<Integer> queue = new ArrayDeque<>();
+    private Map<Integer, Boolean> isUnique = new HashMap<>();
 
     public FirstUnique(int[] nums) {
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
-            list.add(num);
+        for (int i = 0; i < nums.length; i++) {
+            add(nums[i]);
         }
     }
 
     public int showFirstUnique() {
-        int res = -1;
-        int num;
-        while (index < list.size()) {
-            if (map.get((num = list.get(index))) == 1) {
-                return num;
-            } else {
-                index++;
-            }
+        while (!queue.isEmpty() && !isUnique.get(queue.peek())) {
+            queue.remove();
         }
-        return res;
+        return queue.isEmpty() ? -1 : queue.peek();
     }
 
     public void add(int value) {
-        map.put(value, map.getOrDefault(value, 0) + 1);
-        list.add(value);
+        if (!isUnique.containsKey(value)) {
+            isUnique.put(value, true);
+            queue.add(value);
+        } else {
+            isUnique.put(value, false);
+        }
     }
-
 }
-
-/**
- * Your FirstUnique object will be instantiated and called as such:
- * FirstUnique obj = new FirstUnique(nums);
- * int param_1 = obj.showFirstUnique();
- * obj.add(value);
- */
