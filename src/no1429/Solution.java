@@ -16,9 +16,10 @@ class FirstUnique {
 
     public int showFirstUnique() {
         int res = -1;
+        int num;
         while (index < list.size()) {
-            if (map.get(list.get(index)) == 1) {
-                return list.get(index);
+            if (map.get((num = list.get(index))) == 1) {
+                return num;
             } else {
                 index++;
             }
