@@ -1,4 +1,5 @@
-select driver_id, ifnull(cnt, 0) cnt
+select driver_id,
+       ifnull(cnt, 0) cnt
 from (
          select distinct driver_id
          from Rides) mid
