@@ -20,4 +20,4 @@ having sum(flights_count) =
                              from Flights
                          ) mid
                     group by airport_id) mid2
-       )
+       );

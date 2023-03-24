@@ -12,4 +12,4 @@ from (
           from (select user_id, gender from Genders where gender = 'male' order by user_id) mid,
                (select @rownum3 := 0) rownum)
      ) mid4
-order by rownum
+order by rownum;
