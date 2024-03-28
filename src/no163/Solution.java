@@ -4,31 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solution {
-    public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+    public List<List<Integer>> findMissingRanges(int[] nums, int lower, int upper) {
         int len = nums.length;
-        List<String> res = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
         if (len == 0) {
-            res.add(lower == upper ? lower + "" : lower + "->" + upper);
+            List<Integer> list = new ArrayList<>();
+            list.add(lower);
+            list.add(upper);
+            res.add(list);
         } else {
-            int target = nums[0] - 1;
-            if (lower < target) {
-                res.add(lower + "->" + target);
-            } else if (lower == target) {
-                res.add(lower + "");
+            if (nums[0] != lower) {
+                List<Integer> li = new ArrayList<>();
+                li.add(lower);
+                li.add(nums[0] - 1);
+                res.add(li);
             }
             for (int i = 0; i < len - 1; i++) {
-                target = nums[i + 1] - nums[i];
-                if (target == 2) {
-                    res.add((nums[i] + 1) + "");
-                } else if (target > 2) {
-                    res.add((nums[i] + 1) + "->" + (nums[i + 1] - 1));
+                List<Integer> list = new ArrayList<>();
+                int target = nums[i + 1] - nums[i];
+                if (target >= 2) {
+                    list.add(nums[i] + 1);
+                    list.add(nums[i + 1] - 1);
+                    res.add(list);
                 }
             }
-            target = nums[len - 1] + 1;
-            if (target < upper) {
-                res.add(target + "->" + upper);
-            } else if (upper == target) {
-                res.add(upper + "");
+            if (nums[len - 1] != upper) {
+                List<Integer> li = new ArrayList<>();
+                li.add(nums[len - 1] + 1);
+                li.add(upper);
+                res.add(li);
             }
         }
         return res;
