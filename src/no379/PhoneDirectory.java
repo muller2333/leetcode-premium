@@ -34,6 +34,5 @@ class PhoneDirectory {
             index = -index - 1;
             list.add(index, number);
         }
-
     }
 }
