@@ -11,7 +11,7 @@ class Solution {
             int index = 0;
             int len = word.length();
             while ((index = text.indexOf(word, index)) >= 0) {
-                list.add(new int[]{index, index + len - 1});
+                list.add(new int[] { index, index + len - 1 });
                 index++;
             }
         }
