@@ -1,4 +1,3 @@
-# Write your MySQL query statement below
 select
     distinct N,
     if(P is null, 'Root', if(child is null, 'Leaf', 'Inner')) Type
