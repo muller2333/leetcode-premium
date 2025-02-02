@@ -17,11 +17,13 @@ class Solution {
                         break;
                     }
                 }
-                int j = 0;
-                while (j < count) {
-                    res = (res + (j + 1L) * nums[i - 1 - j] * (count - j)) % 1_000_000_007;
-                    j++;
+                int sum = nums[i - 1] + nums[i - count];
+                int cnt = count;
+                count >>= 1;
+                if (cnt % 2 == 1) {
+                    res += nums[i - 1 - count] * (count + 1L) * (count + 1);
                 }
+                res += count * (count + 1L) * (3 * cnt + 2 - 2 * count) / 6 * sum;
                 if (i != length && Math.abs(nums[i - 1] - nums[i]) == 1) {
                     if ((nums[i] - nums[i - 1]) * (nums[i - 1] - nums[i - 2]) == -1) {
                         res -= nums[--i];
