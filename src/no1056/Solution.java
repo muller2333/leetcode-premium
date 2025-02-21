@@ -20,7 +20,7 @@ class Solution {
             }
             n /= 10;
         }
-        return !s.equals(sb);
+        return !s.equals(sb.toString());
     }
 
 }
