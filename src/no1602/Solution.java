@@ -1,25 +1,10 @@
 package no1602;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+import common.TreeNode;
 
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 class Solution {
 

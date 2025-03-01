@@ -4,24 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
+import common.TreeNode;
 
 class Solution {
     List<Double> list = new ArrayList<>();
@@ -39,7 +22,8 @@ class Solution {
             return list.get(search).intValue();
         } else {
             search = -search - 1;
-            return list.get(search) + list.get(search - 1) < target * 2 ? list.get(search).intValue() : list.get(search - 1).intValue();
+            return list.get(search) + list.get(search - 1) < target * 2 ? list.get(search).intValue()
+                    : list.get(search - 1).intValue();
         }
     }
 

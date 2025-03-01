@@ -3,24 +3,7 @@ package no1740;
 import java.util.HashMap;
 import java.util.Map;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
+import common.TreeNode;
 
 class Solution {
     public int findDistance(TreeNode root, int p, int q) {
