@@ -9,17 +9,18 @@ class Solution {
         int length = nums.length;
         List<Integer> list = new ArrayList<>();
         int[] indices = new int[length];
-        int sum = 0;
         list.add(nums[length - 1]);
+        int[] sums = new int[length];
         int diff = 0;
         for (int i = length - 2; i >= 0; i--) {
             int num = nums[i];
-            indices[i] = getRightmostIndex(list, num, 0);
-            sum += indices[i] + 1;
+            int index = getRightmostIndex(list, num, 0);
+            indices[i] = index++;
+            sums[i] = sums[i + 1] + index;
             diff = Math.max(diff, num - list.get(0));
-            list.add(indices[i] + 1, num);
+            list.add(index, num);
         }
-        if (sum < k) {
+        if (sums[0] < k) {
             return -1;
         }
         int left = 1;
@@ -29,7 +30,7 @@ class Solution {
             list = new ArrayList<>();
             list.add(nums[length - 1]);
             int count = 0;
-            for (int i = length - 2; i >= 0; i--) {
+            for (int i = length - 2; i >= 0 && sums[0] - sums[i + 1] + count >= k; i--) {
                 int num = nums[i];
                 if (num <= list.get(0)) {
                     list.add(0, num);
@@ -51,12 +52,13 @@ class Solution {
     }
 
     public int getRightmostIndex(List<Integer> list, int num, int threshold) {
-        int index = Collections.binarySearch(list, num - threshold);
+        int target = num - threshold;
+        int index = Collections.binarySearch(list, target);
         if (index >= 0) {
             int left = 0;
             while (left <= index) {
                 int mid = (left + index) >> 1;
-                if (list.get(mid) == num - threshold) {
+                if (list.get(mid) == target) {
                     index = mid - 1;
                 } else {
                     left = mid + 1;
