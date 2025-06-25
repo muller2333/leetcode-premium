@@ -23,7 +23,7 @@ class Solution {
                 return a[0] - b[0];
             }
         });
-        return null;
+        return res;
     }
 
 }
