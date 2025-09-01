@@ -1,12 +1,18 @@
 select
-    lower(trim(product_name)) product_name,
-    substring(sale_date, 1, 7) sale_date,
+    product_name,
+    sale_date,
     count(sale_date) total
 from
-    Sales
+    (
+        select
+            lower(trim(product_name)) product_name,
+            substring(sale_date, 1, 7) sale_date
+        from
+            Sales
+    ) mid
 group by
-    upper(product_name),
-    substring(sale_date, 1, 7)
+    product_name,
+    sale_date
 order by
     product_name,
     sale_date;
