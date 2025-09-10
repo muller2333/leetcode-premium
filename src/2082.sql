@@ -1,3 +1,6 @@
-select count(distinct customer_id) rich_count
-from Store
-where amount > 500;
+select
+    count(distinct customer_id) rich_count
+from
+    Store
+where
+    amount > 500;

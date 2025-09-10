@@ -4,7 +4,11 @@ select
 from
     (
         select
-            if(minute mod 6 = 0, minute / 6, floor(minute / 6) + 1) interval_no,
+            if(
+                minute mod 6 = 0,
+                minute / 6,
+                floor(minute / 6) + 1
+            ) interval_no,
             order_count
         from
             Orders

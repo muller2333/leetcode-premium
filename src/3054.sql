@@ -1,6 +1,10 @@
 select
     distinct N,
-    if(P is null, 'Root', if(child is null, 'Leaf', 'Inner')) Type
+    if(
+        P is null,
+        'Root',
+        if(child is null, 'Leaf', 'Inner')
+    ) Type
 from
     (
         select

@@ -1,6 +1,10 @@
 select
     product_id,
-    if(discount is null, price, price *(1 - discount / 100)) final_price,
+    if(
+        discount is null,
+        price,
+        price *(1 - discount / 100)
+    ) final_price,
     Products.category
 from
     Products
