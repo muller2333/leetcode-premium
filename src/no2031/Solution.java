@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 class Solution {
-    public int subarraysWithMoreZerosThanOnes(int[] nums) {
+    public int subarraysWithMoreOnesThanZeroes(int[] nums) {
         int length = nums.length;
         int sum = 0;
         long res = 0;
