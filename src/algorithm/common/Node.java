@@ -7,7 +7,6 @@ public class Node {
     public int val;
     public List<Node> children;
 
-
     public Node() {
         children = new ArrayList<Node>();
     }

@@ -7,6 +7,7 @@ interface ArrayReader {
 }
 
 class Solution {
+
     public int getIndex(ArrayReader reader) {
         int length = reader.length();
         return getIndex(reader, 0, length);

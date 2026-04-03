@@ -6,6 +6,7 @@ import java.util.Map;
 import common.TreeNode;
 
 class Solution {
+
     public TreeNode correctBinaryTree(TreeNode root) {
         traverse(null, root, new HashMap<>());
         return root;

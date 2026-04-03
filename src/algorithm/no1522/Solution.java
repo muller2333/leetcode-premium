@@ -1,6 +1,7 @@
 package no1522;
 
 import java.util.List;
+
 import common.Node;
 
 class Solution {
